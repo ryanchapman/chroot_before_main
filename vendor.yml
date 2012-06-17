@@ -1,0 +1,31 @@
+# Vendored files and directories are excluded from language
+# statistics.
+#
+# Lines in this file are Regexps that are matched against the file
+# pathname.
+#
+# See linguist project at https://github.com/github/linguist
+# for more info on how github selects the project language
+#
+
+- ^([^.]*)\.m4$
+- ^AUTHORS$
+- ^ChangeLog$
+- ^chroot_before_main\.so$
+- ^config\.guess$
+- ^config\.log$
+- ^config\.status$
+- ^config\.sub$
+- ^configure$
+- ^configure\.ac$
+- ^COPYING$
+- ^dchroot$
+- ^INSTALL$
+- ^install-sh$
+- ^Makefile$
+- ^Makefile\.am$
+- ^Makefile\.in$
+- ^missing$
+- ^NEWS$
+- ^README$
+- ^vendor\.yml$

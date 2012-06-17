@@ -1,0 +1,23 @@
+chroot_before_main 1.0.0 - A method of executing dynamically linked executables
+                           inside a change root without copying the dynamic
+                           libraries into change root.
+-------------------------------------------------------------------------------
+
+chroot_before_main is a combination of a shared library and accompanying binary
+which provides a method for executing a program inside a change root directory
+without having to copy in all libraries that the program depends on.  This is
+accomplished by placing a hook into the program just before main() is called.
+This hook performs the chroot() call.
+
+The dynamic library loader (ld.so) provides a mechanism called LD_AUDIT which
+allows for a function callback after all dynamic libraries have been loaded,
+but before the main() function is called.  In the case of chroot_before_main,
+the library chroot_before_main.so contains a function called la_preinit().
+la_preinit is where a chroot() is called to place the program in a chroot
+jail. The program can be further locked down by disallowing the chrooted
+program to call chroot() itself, which is a known exploit for breaking
+out of a jail.
+
+Ryan Chapman, ryan@rchapman.org
+Sun Jun  3 15:24:09 MDT 2012
+
