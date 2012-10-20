@@ -71,7 +71,7 @@ int main(int argc, char *argv[], char *envp[])
 	} else if(pid == -1) {
 		perror("fork() failed");
 	} else {
-		wait(status);
+		wait(&status);
 		return(status);
 	}
 
